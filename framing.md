@@ -85,27 +85,34 @@ The scope of this analysis is limited to sessions that are actually eligible for
 - Sessions without an assigned experiment variant  
 Restricting to eligible sessions ensures a clean comparison between Variant A and Variant B and avoids mixing in traffic that never saw the experimental checkout experience.
 
-5. Stakeholder Questions and Data answers:
-# 1. Should we roll out Variant B to everyone?
-# Compare conversion rate and revenue per eligible session between Variant A vs B
-# using sessions.csv, events.csv, and orders.csv.
+## 5. Stakeholder Questions and Data answers:
+- 1. Should we roll out Variant B to everyone?
+Compare conversion rate and revenue per eligible session between Variant A vs B using sessions.csv, events.csv, and orders.csv.
 
-# 2. Does Variant B improve any specific funnel step?
-# Compute step-level funnel conversion (landing → product, product → cart,
-# cart → checkout, checkout → payment, payment → purchase) by variant using events.csv.
+- 2. Does Variant B improve any specific funnel step?
+Compute step-level funnel conversion (landing → product, product → cart, cart → checkout, checkout → payment, payment → purchase) by variant using events.csv.
 
-# 3. Which channels benefit most from Variant B?
-# Segment KPIs (conversion, RPS, AOV) by channel and variant using sessions.csv and orders.csv.
+- 3. Which channels benefit most from Variant B?
+Segment KPIs (conversion, RPS, AOV) by channel and variant using sessions.csv and orders.csv.
 
-# 4. Are there device or user-type differences (new vs returning users)?
-# Segment KPIs by device and is_new_user fields in sessions.csv and compare Variant A vs B.
+- 4. Are there device or user-type differences (new vs returning users)?
+Segment KPIs by device and is_new_user fields in sessions.csv and compare Variant A vs B.
 
-# 5. Which product categories or price bands show the biggest impact?
-# Join orders.csv → order_items.csv → products.json to compute conversion and RPS per category by variant.
+- 5. Which product categories or price bands show the biggest impact?
+Join orders.csv → order_items.csv → products.json to compute conversion and RPS per category by variant.
 
-# 6. Does Variant B hurt margins?
-# Use order_items.csv + products.json to estimate margin per order and compare margin per session.
+- 6. Does Variant B hurt margins?
+Use order_items.csv + products.json to estimate margin per order and compare margin per session.
 
-# 7. What revenue uplift can we expect next month?
-# Estimate incremental revenue per eligible session and multiply by expected sessions.
+- 7. What revenue uplift can we expect next month?
+Estimate incremental revenue per eligible session and multiply by expected sessions.
 
+## Weekly Trends Analysis:
+Variant B consistently outperforms A across all weeks, with average +6% conversion lift.
+**Biggest anomaly:** Week 4 saw +30% lift (55.6% → 85.7%)
+- RPS also spiked: $1909 → $2059  
+- Session duration: 17s → 87s (5x longer)
+- Hypothesis: Holiday surge + B checkout improvements
+
+**Recent trend:** Weeks 45-50 show steady 5-8% lifts
+Recommendation: Roll out B now – momentum building
